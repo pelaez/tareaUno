@@ -1,0 +1,28 @@
+<?php 
+	include_once 'conexionT.php'; //INCLUYO ARCHIVO DE CONEXIÓN
+	$query = "SELECT * FROM cursos ORDER BY idCurso ASC";
+	$resultQuery = mysqli_query($con,$query);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form action="consulta_curso.php" method= "post">
+<select>
+	<?php
+	while ($row = mysqli_fetch_array($resultQuery)){
+		echo "<option value='".$row['idCurso']."'>".$row['nombre'] ."</option>";
+		echo "<p>hola></p>";
+	}
+
+	?>
+
+</select>
+	
+</form>
+
+</body>
+</html>
